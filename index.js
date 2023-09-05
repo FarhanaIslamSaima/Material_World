@@ -8,13 +8,14 @@ import express from "express"
 import Cors from "cors"
 import bodyParser from "body-parser"
 import Route from "./route/Router.js";
+import { connection } from './Database/db.js'
 
 const app=express();
 app.use(Cors());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use("/",Route);
-const port=8000;
+const port=8001;
 
 //serving an html file (usually for testing purposes)
 app.get('/test', function(req, res) {
@@ -23,3 +24,4 @@ app.get('/test', function(req, res) {
 app.listen(port,()=>{
     console.log("Server connected succefully at http://localhost:8000/test");
 })
+connection();

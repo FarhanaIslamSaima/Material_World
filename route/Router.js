@@ -1,6 +1,7 @@
 import express from 'express'
-import { textCheck } from '../controller/blogController.js';
+import { addPost,getPost,getDatabyCat } from '../controller/blogController.js';
 const Route=express.Router();
-Route.get("/check",textCheck);
+Route.get("/get/news/:cat",getDatabyCat);
+
 
 export default Route;
